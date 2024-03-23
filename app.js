@@ -1,4 +1,9 @@
 
+const resetButton = document.querySelector(`#reset`);
+let winningScore = 3;
+const winningScoreSelect = document.querySelector(`#playto`);
+let isGameOver = false;
+
 const p1 = {
     score: 0,
     button: document.querySelector(`#p1Button`),
@@ -18,11 +23,6 @@ score: 0,
 p2.button.addEventListener(`click`, () => {
     updateScores(p2, p1);
 });
-
-const resetButton = document.querySelector(`#reset`);
-let winningScore = 3;
-const winningScoreSelect = document.querySelector(`#playto`);
-let isGameOver = false;
 
 function updateScores(player, otherPlayer) {
     if (!isGameOver) {
@@ -50,8 +50,8 @@ function reset() {
     }
 }
 
-winningScoreSelect.addEventListener(`change`, () => {
-    winningScore = parseInt(event.target.value);
+winningScoreSelect.addEventListener(`change`, (e) => {
+    winningScore = parseInt(e.target.value);
     console.log(winningScore);
     reset();
 });
